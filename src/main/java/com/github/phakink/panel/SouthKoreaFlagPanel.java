@@ -6,19 +6,30 @@ import com.github.phakink.registry.FlagEasyRegister;
 
 import javax.swing.*;
 
-public class ThailandFlagPanel extends GuessingPanel {
+public class SouthKoreaFlagPanel extends GuessingPanel {
 
-	public ThailandFlagPanel() {
-		super("Thailand" , "Vietnam" , "Singapore" , "Indonesia");
+	public SouthKoreaFlagPanel() {
+		super("Norway" , "Senegal" , "Ecuador" , "South Korea");
 
 		setTitle("Country (Easy) | Score: " + Core.getCache().getPoint());
-		choiceOneEvent(e -> onClick(true));
-		choiceTwoEvent(e -> onClick(false));
+
+		choiceFourEvent(e -> onClick(true));
 	}
 
 	@Override
 	protected String imagePath() {
-		return "/Images/Thailand.png";
+		return "/Images/South Korea.png";
+	}
+
+	@Override
+	public JFrame nextChoice() {
+		FlagEasyRegister flagRegistry = FlagEasyRegister.getInstance();
+		GuessingPanel randomPanel = flagRegistry.randomQuiz();
+
+		if (flagRegistry.randomQuiz() == null)
+			return END_OF_GAME;
+
+		return randomPanel;
 	}
 
 	@Override
@@ -29,17 +40,5 @@ public class ThailandFlagPanel extends GuessingPanel {
 	@Override
 	public int decreasement() {
 		return 1;
-	}
-
-	@Override
-	public JFrame nextChoice() {
-		FlagEasyRegister flagRegistry = FlagEasyRegister.getInstance();
-		GuessingPanel randomPanel = flagRegistry.randomQuiz();
-
-		if (flagRegistry.randomQuiz() == null) {
-			return END_OF_GAME;
-		}
-
-		return randomPanel;
 	}
 }

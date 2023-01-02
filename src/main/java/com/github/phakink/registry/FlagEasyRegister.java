@@ -2,6 +2,7 @@ package com.github.phakink.registry;
 
 import com.github.phakink.models.GuessingPanel;
 import com.github.phakink.panel.JapanFlagPanel;
+import com.github.phakink.panel.SouthKoreaFlagPanel;
 import com.github.phakink.panel.ThailandFlagPanel;
 import com.github.phakink.utils.RandomUtil;
 
@@ -9,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 
 public final class FlagEasyRegister {
 
@@ -21,6 +21,7 @@ public final class FlagEasyRegister {
 
 		map.put(new ThailandFlagPanel() , false); // If true, randomQuiz won't add that panel to list
 		map.put(new JapanFlagPanel() , false);
+		map.put(new SouthKoreaFlagPanel() , false);
 	}
 
 
@@ -52,6 +53,7 @@ public final class FlagEasyRegister {
 			map.replace(entry.getKey() , false);
 
 	}
+
 
 	public static FlagEasyRegister getInstance() {
 		return instance;

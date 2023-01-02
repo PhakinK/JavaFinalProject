@@ -1,6 +1,6 @@
 package com.github.phakink;
 
-import com.github.phakink.registry.FlagEasyRegister;
+import com.github.phakink.panel.menu.ModeSelectionPanel;
 
 public class Core {
 
@@ -9,7 +9,7 @@ public class Core {
 	public static void main(String[] args) {
 		cache = new UserCache();
 
-		FlagEasyRegister.getInstance().show(FlagEasyRegister.getInstance().randomQuiz());
+		new ModeSelectionPanel().setVisible(true);
 	}
 
 	public static UserCache getCache() {

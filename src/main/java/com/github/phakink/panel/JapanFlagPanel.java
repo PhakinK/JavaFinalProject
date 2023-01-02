@@ -13,7 +13,7 @@ public class JapanFlagPanel extends GuessingPanel {
 
 		setTitle("Country (Easy) | Score: " + Core.getCache().getPoint());
 
-		choiceTwoEvent(e -> correctAnswer());
+		choiceTwoEvent(e -> onClick(true));
 	}
 
 	@Override
@@ -29,19 +29,16 @@ public class JapanFlagPanel extends GuessingPanel {
 		if (flagRegistry.randomQuiz() == null)
 			return END_OF_GAME;
 
-
 		return randomPanel;
 	}
 
 	@Override
-	public void correctAnswer() {
-		super.correctAnswer();
-
-		Core.getCache().increasePoint(1);
+	public int increment() {
+		return 1;
 	}
 
 	@Override
-	public int increment() {
+	public int decreasement() {
 		return 1;
 	}
 }

@@ -5,6 +5,7 @@ import com.github.phakink.registry.FlagEasyRegister;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
@@ -32,18 +33,27 @@ public abstract class GuessingPanel extends JFrame {
 
 		choice1 = new JButton(c1);
 		choice1.setBounds(0, 229, propertities.getWidth(), propertities.getHeight());
+		choice1.setFont(new Font("Snap ITC", Font.PLAIN, 20));
+		choice1.setBackground(new Color(255, 255, 255));
 		contentPane.add(choice1);
 
 		choice2 = new JButton(c2);
 		choice2.setBounds(182, 229, propertities.getWidth(), propertities.getHeight());
+		choice2.setFont(new Font("Snap ITC", Font.PLAIN, 20));
+		choice2.setBackground(new Color(255, 255, 255));
+
 		contentPane.add(choice2);
 
 		choice3 = new JButton(c3);
 		choice3.setBounds(0, 354, propertities.getWidth(), propertities.getHeight());
+		choice3.setFont(new Font("Snap ITC", Font.PLAIN, 20));
+		choice3.setBackground(new Color(255, 255, 255));
 		contentPane.add(choice3);
 
 		choice4 = new JButton(c4);
 		choice4.setBounds(182, 354, propertities.getWidth(), propertities.getHeight());
+		choice4.setFont(new Font("Snap ITC", Font.PLAIN, 20));
+		choice4.setBackground(new Color(255, 255, 255));
 		contentPane.add(choice4);
 
 		JLabel image = new JLabel();
@@ -73,7 +83,7 @@ public abstract class GuessingPanel extends JFrame {
 
 	protected abstract String imagePath();
 
-	public void correctAnswer() {
+	public void onClick(boolean isCorrect) {
 		this.setVisible(false);
 
 		try {
@@ -83,7 +93,12 @@ public abstract class GuessingPanel extends JFrame {
 			nextPage.setVisible(true);
 
 			nextPage.setLocation(this.getX() , this.getY());
-			Core.getCache().increasePoint(this.increment());
+
+			if (isCorrect)
+				Core.getCache().increasePoint(this.increment());
+			else
+				Core.getCache().decreasePoint(this.decreasement());
+
 			nextPage.setTitle("Country (Easy) | Score: " + Core.getCache().getPoint());
 
 		} catch (NullPointerException ex) {
@@ -91,10 +106,11 @@ public abstract class GuessingPanel extends JFrame {
 			System.err.println("You didn't setup the nextChoice() method.");
 		}
 
-
 	}
 
 	public abstract int increment();
+
+	public abstract int decreasement();
 
 	public abstract JFrame nextChoice();
 

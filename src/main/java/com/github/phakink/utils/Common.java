@@ -18,4 +18,9 @@ public final class Common {
 
 		return list;
 	}
+
+	public static void checkNotNull(Object check , String message) {
+		if (check == null)
+			throw new NullPointerException(message);
+	}
 }
