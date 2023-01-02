@@ -23,7 +23,14 @@ public class JapanFlagPanel extends GuessingPanel {
 
 	@Override
 	public JFrame nextChoice() {
-		return FlagEasyRegister.getInstance().randomQuiz();
+		FlagEasyRegister flagRegistry = FlagEasyRegister.getInstance();
+		GuessingPanel randomPanel = flagRegistry.randomQuiz();
+
+		if (flagRegistry.randomQuiz() == null)
+			return END_OF_GAME;
+
+
+		return randomPanel;
 	}
 
 	@Override

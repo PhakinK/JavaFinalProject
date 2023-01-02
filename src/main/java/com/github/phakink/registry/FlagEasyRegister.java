@@ -5,8 +5,6 @@ import com.github.phakink.panel.JapanFlagPanel;
 import com.github.phakink.panel.ThailandFlagPanel;
 import com.github.phakink.utils.RandomUtil;
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
