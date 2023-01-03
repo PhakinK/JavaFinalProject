@@ -13,7 +13,11 @@ public class JapanFlagPanel extends GuessingPanel {
 
 		setTitle("Country (Easy) | Score: " + Core.getCache().getPoint());
 
+
+		choiceOneEvent(e -> onClick(false));
 		choiceTwoEvent(e -> onClick(true));
+		choiceThreeEvent(e -> onClick(false));
+		choiceFourEvent(e -> onClick(false));
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package com.github.phakink.panel.menu;
 
+import com.github.phakink.Core;
 import com.github.phakink.models.GuessingPanel;
 import com.github.phakink.registry.FlagEasyRegister;
 
@@ -15,6 +16,9 @@ public class ModeSelectionPanel extends JFrame {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 380, 520);
+
+		setTitle("Guessing game | Mode selection");
+
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

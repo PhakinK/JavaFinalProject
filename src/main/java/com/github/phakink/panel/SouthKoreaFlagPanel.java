@@ -13,6 +13,9 @@ public class SouthKoreaFlagPanel extends GuessingPanel {
 
 		setTitle("Country (Easy) | Score: " + Core.getCache().getPoint());
 
+		choiceOneEvent(e -> onClick(false));
+		choiceTwoEvent(e -> onClick(false));
+		choiceThreeEvent(e -> onClick(false));
 		choiceFourEvent(e -> onClick(true));
 	}
 

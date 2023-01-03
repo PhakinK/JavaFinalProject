@@ -14,6 +14,8 @@ public class ThailandFlagPanel extends GuessingPanel {
 		setTitle("Country (Easy) | Score: " + Core.getCache().getPoint());
 		choiceOneEvent(e -> onClick(true));
 		choiceTwoEvent(e -> onClick(false));
+		choiceThreeEvent(e -> onClick(false));
+		choiceFourEvent(e -> onClick(false));
 	}
 
 	@Override

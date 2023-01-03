@@ -19,6 +19,9 @@ public class UserCache implements Serializable {
 	}
 
 	public void decreasePoint(int point) {
+		if (this.point - point < 0)
+			return;
+
 		this.point -= point;
 	}
 
