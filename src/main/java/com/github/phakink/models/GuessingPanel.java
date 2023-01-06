@@ -11,9 +11,6 @@ import java.util.Objects;
 
 public abstract class GuessingPanel extends JFrame {
 
-	protected static final JFrame END_OF_GAME = null;
-
-	private JPanel contentPane;
 	private final JButton choice1;
 	private final JButton choice2;
 	private final JButton choice3;
@@ -23,10 +20,12 @@ public abstract class GuessingPanel extends JFrame {
 
 		ButtonPropertities propertities = new ButtonPropertities(182,127);
 
+		this.setTitle("Country (Easy) | Score: " + Core.getCache().getPoint());
+
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 380, 520);
-		contentPane = new JPanel();
+		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -114,12 +113,63 @@ public abstract class GuessingPanel extends JFrame {
 
 	public abstract JFrame nextChoice();
 
-	private static final class EndOfGameFrame extends JFrame {
+	public static final class EndOfGameFrame extends JFrame {
 
-		private EndOfGameFrame() {
+		public EndOfGameFrame() {
 
 			FlagEasyRegister.getInstance().clearState();
-			this.setVisible(false);
+
+			setTitle("Country (Easy)");
+			setResizable(false);
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			setBounds(100, 100, 300, 300);
+			JPanel contentPane = new JPanel();
+			contentPane.setBackground(new Color(255, 255, 255));
+			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+			setContentPane(contentPane);
+			contentPane.setLayout(null);
+
+			JPanel upperBar = new JPanel();
+			upperBar.setBackground(Color.BLACK);
+			upperBar.setBounds(0, 0, 284, 10);
+			contentPane.add(upperBar);
+
+			JPanel lowerBar = new JPanel();
+			lowerBar.setBackground(Color.BLACK);
+			lowerBar.setBounds(0, 251, 284, 10);
+			contentPane.add(lowerBar);
+
+			JPanel rightBar = new JPanel();
+			rightBar.setBackground(Color.BLACK);
+			rightBar.setBounds(0, 0, 10, 261);
+			contentPane.add(rightBar);
+
+			JPanel leftBar = new JPanel();
+			leftBar.setBackground(Color.BLACK);
+			leftBar.setBounds(274, 0, 10, 261);
+			contentPane.add(leftBar);
+
+			JLabel endingLabel = new JLabel("Ending!");
+			endingLabel.setFont(new Font("Snap ITC", Font.PLAIN, 45));
+			endingLabel.setBounds(40, 11, 219, 119);
+			contentPane.add(endingLabel);
+
+			JButton finishButton = new JButton("Finish!");
+			finishButton.setFont(new Font("Snap ITC", Font.PLAIN, 16));
+			finishButton.setBounds(76, 193, 122, 38);
+			contentPane.add(finishButton);
+
+			JLabel resultLabel = new JLabel("You got: \t" + Core.getCache().getPoint() + " points");
+			resultLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+			resultLabel.setBounds(50, 130, 180, 20);
+			contentPane.add(resultLabel);
+
+			finishButton.addActionListener(e -> {
+				this.setVisible(false);
+				Core.getModeSelectionPanel().setVisible(true);
+				Core.getModeSelectionPanel().setLocation(this.getX(), this.getY());
+			});
 
 		}
 	}

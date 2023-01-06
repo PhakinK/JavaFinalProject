@@ -4,7 +4,7 @@ import java.io.*;
 
 public class UserCache implements Serializable {
 
-	private int point;
+	private int point = 1;
 
 	public int getPoint() {
 		return point;
@@ -19,7 +19,7 @@ public class UserCache implements Serializable {
 	}
 
 	public void decreasePoint(int point) {
-		if (this.point - point < 0)
+		if (this.point - point < 1)
 			return;
 
 		this.point -= point;
