@@ -1,7 +1,9 @@
 package com.github.phakink.panel;
 
+import com.github.phakink.Core;
 import com.github.phakink.models.GuessingPanel;
 import com.github.phakink.registry.FlagEasyRegister;
+import com.github.phakink.registry.FlagMediumRegister;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -65,11 +67,20 @@ public class ModeSelectionPanel extends JFrame {
 		easy.addActionListener(e -> {
 			GuessingPanel panel = FlagEasyRegister.getInstance().randomQuiz();
 
+			panel.setTitle("Country (Easy) | Score: " + Core.getCache().getPoint());
 			panel.setLocation(this.getX() , this.getY());
-
 			FlagEasyRegister.getInstance().show(panel);
-			this.setVisible(false);
+			this.dispose();
 		});
 
+
+		medium.addActionListener(e -> {
+			GuessingPanel panel = FlagMediumRegister.getInstance().randomQuiz();
+
+			panel.setTitle("Country (Medium) | Score: " + Core.getCache().getPoint());
+			panel.setLocation(this.getX() , this.getY());
+			FlagMediumRegister.getInstance().show(panel);
+			this.dispose();
+		});
 	}
 }

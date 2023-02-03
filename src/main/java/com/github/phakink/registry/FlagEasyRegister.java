@@ -23,11 +23,11 @@ public final class FlagEasyRegister {
 		map.put(new JapanFlagPanel() , false);
 		map.put(new SouthKoreaFlagPanel() , false);
 		map.put(new ChinaFlagPanel(), false);
-		map.put(new MalaysiaFlagPanel(), false);
+		map.put(new USAFlagPanel(), false);
 		map.put(new NetherlandsFlagPanel(), false);
 		map.put(new NorwayFlagPanel(), false);
 		map.put(new SpainFlagPanel(), false);
-
+		map.put(new SwedenFlagPanel(), false);
 	}
 
 

@@ -1,25 +1,27 @@
 package com.github.phakink;
 
 import com.github.phakink.panel.ModeSelectionPanel;
+import java.awt.*;
 
 public class Core {
 
 	private static UserCache cache;
-	private static ModeSelectionPanel modeSelectionPanel;
-
 
 	public static void main(String[] args) {
-		cache = new UserCache();
 
-		modeSelectionPanel = new ModeSelectionPanel();
-		modeSelectionPanel.setVisible(true);
+		EventQueue.invokeLater(() -> {
+			try {
+				cache = new UserCache();
+
+				ModeSelectionPanel modeSelectionPanel = new ModeSelectionPanel();
+				modeSelectionPanel.setVisible(true);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		});
 	}
 
 	public static UserCache getCache() {
 		return cache;
-	}
-
-	public static ModeSelectionPanel getModeSelectionPanel() {
-		return modeSelectionPanel;
 	}
 }

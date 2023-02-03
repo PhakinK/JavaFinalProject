@@ -1,16 +1,15 @@
-package com.github.phakink.panel.easy;
+package com.github.phakink.panel.medium;
 
-import com.github.phakink.Core;
 import com.github.phakink.models.Gamemode;
 import com.github.phakink.models.GuessingPanel;
-import com.github.phakink.registry.FlagEasyRegister;
+import com.github.phakink.registry.FlagMediumRegister;
 
 import javax.swing.*;
 
-public class NorwayFlagPanel extends GuessingPanel {
+public class SomaliaFlagPanel extends GuessingPanel {
 
-	public NorwayFlagPanel() {
-		super(Gamemode.EASY ,"Romania", "Venezuela", "Iceland", "Norway");
+	public SomaliaFlagPanel() {
+		super(Gamemode.MEDIUM ,"Vietnam", "Turkey", "Senegal", "Somalia");
 
 		choiceOneEvent(e -> onClick(false));
 		choiceTwoEvent(e -> onClick(false));
@@ -20,7 +19,7 @@ public class NorwayFlagPanel extends GuessingPanel {
 
 	@Override
 	protected String imagePath() {
-		return "/Images/FlagEasy/Norway.png";
+		return "/Images/FlagMedium/Somalia.png";
 	}
 
 	@Override
@@ -35,7 +34,7 @@ public class NorwayFlagPanel extends GuessingPanel {
 
 	@Override
 	public JFrame nextChoice() {
-		FlagEasyRegister flagRegistry = FlagEasyRegister.getInstance();
+		FlagMediumRegister flagRegistry = FlagMediumRegister.getInstance();
 		GuessingPanel randomPanel = flagRegistry.randomQuiz();
 
 		if (flagRegistry.randomQuiz() == null) {

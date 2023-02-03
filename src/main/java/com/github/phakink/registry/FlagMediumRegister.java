@@ -1,6 +1,8 @@
 package com.github.phakink.registry;
 
 import com.github.phakink.models.GuessingPanel;
+import com.github.phakink.panel.easy.EnglandFlagPanel;
+import com.github.phakink.panel.medium.*;
 import com.github.phakink.utils.RandomUtil;
 
 import java.util.ArrayList;
@@ -16,7 +18,17 @@ public final class FlagMediumRegister {
 
 	private FlagMediumRegister() {
 
-
+		map.put(new AfghanistanFlagPanel(), false);
+		map.put(new CroatiaFlagPanel(), false);
+		map.put(new EcuadorFlagPanel(), false);
+		map.put(new EgyptFlagPanel(), false);
+		map.put(new LuxembourgFlagPanel(), false);
+		map.put(new MaltaFlagPanel(), false);
+		map.put(new PakistanFlagPanel(), false);
+		map.put(new ParaguayFlagPanel(), false);
+		map.put(new SerbiaFlagPanel(), false);
+		map.put(new SomaliaFlagPanel(), false);
+		map.put(new UruguayFlagPanel(), false);
 	}
 
 	public GuessingPanel randomQuiz() {

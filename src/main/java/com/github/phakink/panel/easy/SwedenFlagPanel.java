@@ -7,30 +7,23 @@ import com.github.phakink.registry.FlagEasyRegister;
 
 import javax.swing.*;
 
-public class NorwayFlagPanel extends GuessingPanel {
+public class SwedenFlagPanel extends GuessingPanel {
 
-	public NorwayFlagPanel() {
-		super(Gamemode.EASY ,"Romania", "Venezuela", "Iceland", "Norway");
+	public SwedenFlagPanel() {
+		super(Gamemode.EASY ,"Sweden" , "Norway" , "England" , "Nigeria");
 
-		choiceOneEvent(e -> onClick(false));
+		setTitle("Country (Easy) | Score: " + Core.getCache().getPoint());
+
+
+		choiceOneEvent(e -> onClick(true));
 		choiceTwoEvent(e -> onClick(false));
 		choiceThreeEvent(e -> onClick(false));
-		choiceFourEvent(e -> onClick(true));
+		choiceFourEvent(e -> onClick(false));
 	}
 
 	@Override
 	protected String imagePath() {
-		return "/Images/FlagEasy/Norway.png";
-	}
-
-	@Override
-	public int increment() {
-		return 1;
-	}
-
-	@Override
-	public int decreasement() {
-		return 1;
+		return "/Images/FlagEasy/Sweden.png";
 	}
 
 	@Override
@@ -48,5 +41,15 @@ public class NorwayFlagPanel extends GuessingPanel {
 		this.dispose();
 
 		return randomPanel;
+	}
+
+	@Override
+	public int increment() {
+		return 1;
+	}
+
+	@Override
+	public int decreasement() {
+		return 1;
 	}
 }

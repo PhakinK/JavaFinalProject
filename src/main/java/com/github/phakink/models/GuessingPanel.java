@@ -1,7 +1,11 @@
 package com.github.phakink.models;
 
 import com.github.phakink.Core;
+import com.github.phakink.panel.ModeSelectionPanel;
 import com.github.phakink.registry.FlagEasyRegister;
+import com.github.phakink.registry.FlagHardRegister;
+import com.github.phakink.registry.FlagMediumRegister;
+import com.github.phakink.utils.Common;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -11,12 +15,15 @@ import java.util.Objects;
 
 public abstract class GuessingPanel extends JFrame {
 
+	private final Gamemode gamemode;
 	private final JButton choice1;
 	private final JButton choice2;
 	private final JButton choice3;
 	private final JButton choice4;
 
-	public GuessingPanel(String c1 , String c2 , String c3 , String c4) {
+	public GuessingPanel(Gamemode gamemode , String c1 , String c2 , String c3 , String c4) {
+
+		this.gamemode = gamemode;
 
 		ButtonPropertities propertities = new ButtonPropertities(182,127);
 
@@ -86,8 +93,7 @@ public abstract class GuessingPanel extends JFrame {
 		this.setVisible(false);
 
 		try {
-
-			FlagEasyRegister.getInstance().setState(this , true);
+			Common.setState(this.gamemode , this,true);
 			JFrame nextPage = this.nextChoice();
 			nextPage.setVisible(true);
 
@@ -98,7 +104,7 @@ public abstract class GuessingPanel extends JFrame {
 			else
 				Core.getCache().decreasePoint(this.decreasement());
 
-			nextPage.setTitle("Country (Easy) | Score: " + Core.getCache().getPoint());
+			nextPage.setTitle("Country ({mode}) | Score: ".replace("{mode}", this.gamemode.getAbbreviation()) + Core.getCache().getPoint());
 
 		} catch (NullPointerException ex) {
 
@@ -117,9 +123,9 @@ public abstract class GuessingPanel extends JFrame {
 
 		public EndOfGameFrame() {
 
-			FlagEasyRegister.getInstance().clearState();
+			Common.clearAllModeState();
 
-			setTitle("Country (Easy)");
+			setTitle("Result!");
 			setResizable(false);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, 300, 300);
@@ -166,9 +172,11 @@ public abstract class GuessingPanel extends JFrame {
 			contentPane.add(resultLabel);
 
 			finishButton.addActionListener(e -> {
-				this.setVisible(false);
-				Core.getModeSelectionPanel().setVisible(true);
-				Core.getModeSelectionPanel().setLocation(this.getX(), this.getY());
+				Core.getCache().setPoint(0);
+				ModeSelectionPanel modePanel = new ModeSelectionPanel();
+				modePanel.setVisible(true);
+				modePanel.setLocation(this.getX(), this.getY());
+				this.dispose();
 			});
 
 		}

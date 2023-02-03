@@ -1,10 +1,8 @@
 package com.github.phakink;
 
-import java.io.*;
+public class UserCache {
 
-public class UserCache implements Serializable {
-
-	private int point = 1;
+	private int point = 0;
 
 	public int getPoint() {
 		return point;
