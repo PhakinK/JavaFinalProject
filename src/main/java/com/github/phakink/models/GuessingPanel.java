@@ -2,9 +2,6 @@ package com.github.phakink.models;
 
 import com.github.phakink.Core;
 import com.github.phakink.panel.ModeSelectionPanel;
-import com.github.phakink.registry.FlagEasyRegister;
-import com.github.phakink.registry.FlagHardRegister;
-import com.github.phakink.registry.FlagMediumRegister;
 import com.github.phakink.utils.Common;
 
 import javax.swing.*;
@@ -27,7 +24,7 @@ public abstract class GuessingPanel extends JFrame {
 
 		ButtonPropertities propertities = new ButtonPropertities(182,127);
 
-		this.setTitle("Country (Easy) | Score: " + Core.getCache().getPoint());
+		this.setTitle("Country ({mode}) | Score: ".replace("{mode}" , gamemode.getAbbreviation()) + Core.getCache().getPoint());
 
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -93,7 +90,7 @@ public abstract class GuessingPanel extends JFrame {
 		this.setVisible(false);
 
 		try {
-			Common.setState(this.gamemode , this,true);
+			Common.setState(this,true);
 			JFrame nextPage = this.nextChoice();
 			nextPage.setVisible(true);
 
@@ -118,6 +115,19 @@ public abstract class GuessingPanel extends JFrame {
 	public abstract int decreasement();
 
 	public abstract JFrame nextChoice();
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		GuessingPanel panel = (GuessingPanel) o;
+		return gamemode == panel.gamemode && Objects.equals(choice1, panel.choice1) && Objects.equals(choice2, panel.choice2) && Objects.equals(choice3, panel.choice3) && Objects.equals(choice4, panel.choice4);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(gamemode, choice1, choice2, choice3, choice4);
+	}
 
 	public static final class EndOfGameFrame extends JFrame {
 

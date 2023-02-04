@@ -2,8 +2,7 @@ package com.github.phakink.panel.medium;
 
 import com.github.phakink.models.Gamemode;
 import com.github.phakink.models.GuessingPanel;
-import com.github.phakink.registry.FlagEasyRegister;
-import com.github.phakink.registry.FlagMediumRegister;
+import com.github.phakink.registry.FlagRegister;
 
 import javax.swing.*;
 
@@ -35,10 +34,10 @@ public class AfghanistanFlagPanel extends GuessingPanel {
 
 	@Override
 	public JFrame nextChoice() {
-		FlagMediumRegister flagRegistry = FlagMediumRegister.getInstance();
-		GuessingPanel randomPanel = flagRegistry.randomQuiz();
+		FlagRegister flagRegister = FlagRegister.getInstance();
+		GuessingPanel randomPanel = flagRegister.randomQuiz(Gamemode.MEDIUM);
 
-		if (flagRegistry.randomQuiz() == null) {
+		if (randomPanel == null) {
 			EndOfGameFrame endOfGameFrame = new EndOfGameFrame();
 			endOfGameFrame.setLocation(this.getX() , this.getY());
 			this.dispose();

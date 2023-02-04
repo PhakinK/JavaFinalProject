@@ -1,9 +1,9 @@
 package com.github.phakink.panel;
 
 import com.github.phakink.Core;
+import com.github.phakink.models.Gamemode;
 import com.github.phakink.models.GuessingPanel;
-import com.github.phakink.registry.FlagEasyRegister;
-import com.github.phakink.registry.FlagMediumRegister;
+import com.github.phakink.registry.FlagRegister;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -65,21 +65,29 @@ public class ModeSelectionPanel extends JFrame {
 		contentPane.add(right);
 
 		easy.addActionListener(e -> {
-			GuessingPanel panel = FlagEasyRegister.getInstance().randomQuiz();
+			GuessingPanel panel = FlagRegister.getInstance().randomQuiz(Gamemode.EASY);
 
 			panel.setTitle("Country (Easy) | Score: " + Core.getCache().getPoint());
 			panel.setLocation(this.getX() , this.getY());
-			FlagEasyRegister.getInstance().show(panel);
+			FlagRegister.getInstance().show(panel);
 			this.dispose();
 		});
 
-
 		medium.addActionListener(e -> {
-			GuessingPanel panel = FlagMediumRegister.getInstance().randomQuiz();
+			GuessingPanel panel = FlagRegister.getInstance().randomQuiz(Gamemode.MEDIUM);
 
 			panel.setTitle("Country (Medium) | Score: " + Core.getCache().getPoint());
 			panel.setLocation(this.getX() , this.getY());
-			FlagMediumRegister.getInstance().show(panel);
+			FlagRegister.getInstance().show(panel);
+			this.dispose();
+		});
+
+		hard.addActionListener(e -> {
+			GuessingPanel panel = FlagRegister.getInstance().randomQuiz(Gamemode.HARD);
+
+			panel.setTitle("Country (Hard) | Score: " + Core.getCache().getPoint());
+			panel.setLocation(this.getX() , this.getY());
+			FlagRegister.getInstance().show(panel);
 			this.dispose();
 		});
 	}

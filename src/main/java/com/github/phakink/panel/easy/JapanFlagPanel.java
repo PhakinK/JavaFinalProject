@@ -3,7 +3,7 @@ package com.github.phakink.panel.easy;
 import com.github.phakink.Core;
 import com.github.phakink.models.Gamemode;
 import com.github.phakink.models.GuessingPanel;
-import com.github.phakink.registry.FlagEasyRegister;
+import com.github.phakink.registry.FlagRegister;
 
 import javax.swing.*;
 
@@ -28,10 +28,10 @@ public class JapanFlagPanel extends GuessingPanel {
 
 	@Override
 	public JFrame nextChoice() {
-		FlagEasyRegister flagRegistry = FlagEasyRegister.getInstance();
-		GuessingPanel randomPanel = flagRegistry.randomQuiz();
+		FlagRegister flagRegistry = FlagRegister.getInstance();
+		GuessingPanel randomPanel = flagRegistry.randomQuiz(Gamemode.EASY);
 
-		if (flagRegistry.randomQuiz() == null) {
+		if (randomPanel == null) {
 			EndOfGameFrame endOfGameFrame = new EndOfGameFrame();
 			endOfGameFrame.setLocation(this.getX() , this.getY());
 			this.dispose();

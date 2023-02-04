@@ -1,4 +1,4 @@
-package com.github.phakink.panel.easy;
+package com.github.phakink.panel.hard;
 
 import com.github.phakink.models.Gamemode;
 import com.github.phakink.models.GuessingPanel;
@@ -6,20 +6,20 @@ import com.github.phakink.registry.FlagRegister;
 
 import javax.swing.*;
 
-public class USAFlagPanel extends GuessingPanel {
+public class KiribatiFlagPanel extends GuessingPanel {
 
-	public USAFlagPanel() {
-		super(Gamemode.EASY ,"Singapore", "Malaysia", "Indonesia", "USA");
+	public KiribatiFlagPanel() {
+		super(Gamemode.HARD ,"Zimbabwe", "Togo", "Kiribati", "Ghana");
 
 		choiceOneEvent(e -> onClick(false));
 		choiceTwoEvent(e -> onClick(false));
-		choiceThreeEvent(e -> onClick(false));
-		choiceFourEvent(e -> onClick(true));
+		choiceThreeEvent(e -> onClick(true));
+		choiceFourEvent(e -> onClick(false));
 	}
 
 	@Override
 	protected String imagePath() {
-		return "/Images/FlagEasy/USA.png";
+		return "/Images/FlagHard/Kiribati.png";
 	}
 
 	@Override
@@ -34,8 +34,8 @@ public class USAFlagPanel extends GuessingPanel {
 
 	@Override
 	public JFrame nextChoice() {
-		FlagRegister flagRegistry = FlagRegister.getInstance();
-		GuessingPanel randomPanel = flagRegistry.randomQuiz(Gamemode.EASY);
+		FlagRegister flagRegister = FlagRegister.getInstance();
+		GuessingPanel randomPanel = flagRegister.randomQuiz(Gamemode.HARD);
 
 		if (randomPanel == null) {
 			EndOfGameFrame endOfGameFrame = new EndOfGameFrame();

@@ -2,9 +2,7 @@ package com.github.phakink.utils;
 
 import com.github.phakink.models.Gamemode;
 import com.github.phakink.models.GuessingPanel;
-import com.github.phakink.registry.FlagEasyRegister;
-import com.github.phakink.registry.FlagHardRegister;
-import com.github.phakink.registry.FlagMediumRegister;
+import com.github.phakink.registry.FlagRegister;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,25 +23,12 @@ public final class Common {
 		return list;
 	}
 
-	public static void setState(Gamemode gamemode, GuessingPanel panel , boolean state) {
+	public static void setState(GuessingPanel panel , boolean state) {
 
-		switch (gamemode) {
-			case EASY:
-				FlagEasyRegister.getInstance().setState(panel , state);
-				break;
-			case MEDIUM:
-				FlagMediumRegister.getInstance().setState(panel , state);
-				break;
-			case HARD:
-				FlagHardRegister.getInstance().setState(panel , state);
-				break;
-		}
-
+		FlagRegister.getInstance().setState(panel , state);
 	}
 
 	public static void clearAllModeState() {
-		FlagEasyRegister.getInstance().clearState();
-		FlagMediumRegister.getInstance().clearState();
-		FlagHardRegister.getInstance().clearState();
+		FlagRegister.getInstance().clearState();
 	}
 }
