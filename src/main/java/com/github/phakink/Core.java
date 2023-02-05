@@ -1,6 +1,8 @@
 package com.github.phakink;
 
-import com.github.phakink.panel.ModeSelectionPanel;
+import com.github.phakink.panel.MainPanel;
+import com.github.phakink.utils.Common;
+
 import java.awt.*;
 
 public class Core {
@@ -13,8 +15,11 @@ public class Core {
 			try {
 				cache = new UserCache();
 
-				ModeSelectionPanel modeSelectionPanel = new ModeSelectionPanel();
-				modeSelectionPanel.setVisible(true);
+				MainPanel frame = new MainPanel();
+
+				Common.centeredFrame(frame);
+				frame.setVisible(true);
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
