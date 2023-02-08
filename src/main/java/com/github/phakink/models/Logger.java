@@ -27,7 +27,6 @@ public final class Logger {
 		lores.forEach(lines -> {
 			try {
 				writer.append(lines).append("\n");
-				System.out.println(lines);
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
