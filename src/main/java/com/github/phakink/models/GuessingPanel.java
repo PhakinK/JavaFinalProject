@@ -2,6 +2,7 @@ package com.github.phakink.models;
 
 import com.github.phakink.Core;
 import com.github.phakink.panel.ModeSelectionPanel;
+import com.github.phakink.panel.PathDefinePanel;
 import com.github.phakink.utils.Common;
 
 import javax.swing.*;
@@ -17,6 +18,8 @@ public abstract class GuessingPanel extends JFrame {
 	private final JButton choice2;
 	private final JButton choice3;
 	private final JButton choice4;
+
+	private String loggerInfo;
 
 	public GuessingPanel(Gamemode gamemode , String c1 , String c2 , String c3 , String c4) {
 
@@ -87,6 +90,7 @@ public abstract class GuessingPanel extends JFrame {
 	protected abstract String imagePath();
 
 	public void onClick(boolean isCorrect) {
+
 		this.setVisible(false);
 
 		try {
@@ -96,10 +100,13 @@ public abstract class GuessingPanel extends JFrame {
 
 			nextPage.setLocation(this.getX() , this.getY());
 
-			if (isCorrect)
+			if (isCorrect) {
+				Logger.getInstance().addLore("- " + loggerInfo + " [" + "✓" + "]");
 				Core.getCache().increasePoint(this.increment());
-			else
+			} else {
+				Logger.getInstance().addLore("- " + loggerInfo + " [" + "✕" + "]");
 				Core.getCache().decreasePoint(this.decreasement());
+			}
 
 			nextPage.setTitle("Country ({mode}) | Score: ".replace("{mode}", this.gamemode.getAbbreviation()) + Core.getCache().getPoint());
 
@@ -115,6 +122,10 @@ public abstract class GuessingPanel extends JFrame {
 	public abstract int decreasement();
 
 	public abstract JFrame nextChoice();
+
+	public void setLoggerInfo(String info) {
+		this.loggerInfo = info;
+	}
 
 	@Override
 	public boolean equals(Object o) {
@@ -182,11 +193,22 @@ public abstract class GuessingPanel extends JFrame {
 			contentPane.add(resultLabel);
 
 			finishButton.addActionListener(e -> {
-				Core.getCache().setPoint(0);
-				ModeSelectionPanel modePanel = new ModeSelectionPanel();
-				modePanel.setVisible(true);
-				modePanel.setLocation(this.getX(), this.getY());
-				this.dispose();
+
+				int confirm = JOptionPane.showConfirmDialog(null , "Do you want to print a log?", "Logger", JOptionPane.YES_NO_OPTION);
+
+				if (confirm == JOptionPane.YES_OPTION) {
+					PathDefinePanel pathDefinePanel = new PathDefinePanel();
+					pathDefinePanel.setLocation(this.getLocation());
+					pathDefinePanel.setVisible(true);
+					this.dispose();
+				} else {
+					Core.getCache().setPoint(0);
+					ModeSelectionPanel modePanel = new ModeSelectionPanel();
+					modePanel.setVisible(true);
+					modePanel.setLocation(this.getX(), this.getY());
+					this.dispose();
+				}
+
 			});
 
 		}

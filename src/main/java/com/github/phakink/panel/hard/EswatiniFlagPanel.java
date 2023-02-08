@@ -15,6 +15,8 @@ public class EswatiniFlagPanel extends GuessingPanel {
 		choiceTwoEvent(e -> onClick(false));
 		choiceThreeEvent(e -> onClick(false));
 		choiceFourEvent(e -> onClick(true));
+
+		setLoggerInfo("Eswatini");
 	}
 
 	@Override

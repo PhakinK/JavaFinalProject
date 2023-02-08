@@ -1,11 +1,12 @@
 package com.github.phakink.utils;
 
-import com.github.phakink.models.Gamemode;
 import com.github.phakink.models.GuessingPanel;
 import com.github.phakink.registry.FlagRegister;
 
 import javax.swing.*;
 import java.awt.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,5 +40,11 @@ public final class Common {
 		int iCoordX = (objDimension.width - objFrame.getWidth()) / 2;
 		int iCoordY = (objDimension.height - objFrame.getHeight()) / 2;
 		objFrame.setLocation(iCoordX, iCoordY);
+	}
+
+	public static String getFormattedDate() {
+		final DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+
+		return dateFormat.format(System.currentTimeMillis());
 	}
 }

@@ -15,6 +15,8 @@ public class USAFlagPanel extends GuessingPanel {
 		choiceTwoEvent(e -> onClick(false));
 		choiceThreeEvent(e -> onClick(false));
 		choiceFourEvent(e -> onClick(true));
+
+		setLoggerInfo("United State");
 	}
 
 	@Override

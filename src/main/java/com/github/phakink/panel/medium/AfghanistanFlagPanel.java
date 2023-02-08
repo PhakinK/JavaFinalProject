@@ -15,6 +15,8 @@ public class AfghanistanFlagPanel extends GuessingPanel {
 		choiceTwoEvent(e -> onClick(false));
 		choiceThreeEvent(e -> onClick(false));
 		choiceFourEvent(e -> onClick(true));
+
+		setLoggerInfo("Afghanistan");
 	}
 
 	@Override

@@ -15,6 +15,8 @@ public class MaltaFlagPanel extends GuessingPanel {
 		choiceTwoEvent(e -> onClick(true));
 		choiceThreeEvent(e -> onClick(false));
 		choiceFourEvent(e -> onClick(false));
+
+		setLoggerInfo("Malta");
 	}
 
 	@Override
