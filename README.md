@@ -7,7 +7,11 @@ The game that used for measure your knowledge about world country flag also you 
 - Logging system which will be kept the log file in specify path.
 - Memory leak protection
 - Over 30 questions!
+- Lightweight
 
 # Download
+
+```diff
+- Using java 8 or higher otherwise program won't work.
 
 Download: https://drive.google.com/file/d/1wPsEZm9KpnS9z051vC6aZEZW6HGZ9s40/view?usp=share_link
