@@ -61,6 +61,23 @@ public class PathDefinePanel extends JFrame {
 
 		confirmButton.addActionListener(e -> {
 
+			if (pathTextField.getText().lastIndexOf(".") != -1) {
+				JOptionPane.showMessageDialog(null ,
+						"Please don't specific to any file.",
+						"Error!",
+						JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+
+			if (!new File(pathTextField.getText()).exists()) {
+				JOptionPane.showMessageDialog(null ,
+						"Specify path doesn't exist!",
+						"Error!",
+						JOptionPane.ERROR_MESSAGE);
+
+				return;
+			}
+
 			try {
 
 				File file = new File(pathTextField.getText() + "\\result.log");
