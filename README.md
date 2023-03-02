@@ -12,6 +12,6 @@ The game that used for measure your knowledge about world country flag also you 
 # Download
 
 ```diff
-- Using java 8 or higher otherwise program won't work.
+- This software below has already parsed to .exe
 
-Download: https://drive.google.com/file/d/1wPsEZm9KpnS9z051vC6aZEZW6HGZ9s40/view?usp=share_link
+Download: https://drive.google.com/file/d/1Aiv9WQVFje-ijq8ziyz633QLbTUcVxpt/view?usp=share_link
