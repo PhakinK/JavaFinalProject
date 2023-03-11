@@ -14,4 +14,4 @@ The game that used for measure your knowledge about world country flag also you 
 ```diff
 - This software below has already parsed to .exe
 
-Download: https://drive.google.com/file/d/1Aiv9WQVFje-ijq8ziyz633QLbTUcVxpt/view?usp=share_link
+Download: https://drive.google.com/file/d/1xF2L-W76o7nzs519JUohHJCGd1AB2RGd/view?usp=share_link
