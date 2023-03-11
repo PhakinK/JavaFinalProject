@@ -15,3 +15,4 @@ The game that used for measure your knowledge about world country flag also you 
 - This software below has already parsed to .exe
 
 Download: https://drive.google.com/file/d/1xF2L-W76o7nzs519JUohHJCGd1AB2RGd/view?usp=share_link
+Mega: https://mega.nz/file/KHoxDCxY#ME1fuZfvAmsMQKShJvgI_L50ofjpd4y-oY2J0gjqkcQ
