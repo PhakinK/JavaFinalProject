@@ -17,7 +17,7 @@ public class UserCache {
 	}
 
 	public void decreasePoint(int point) {
-		if (this.point - point < 1)
+		if (this.point - point < 0)
 			return;
 
 		this.point -= point;
