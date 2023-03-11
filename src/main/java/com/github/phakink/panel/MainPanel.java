@@ -36,8 +36,6 @@ public class MainPanel extends JFrame {
 
 		JButton startButton = new JButton("Start");
 		startButton.setFont(new Font("Snap ITC", Font.PLAIN, 21));
-		startButton.addActionListener(e -> {
-		});
 		startButton.setBounds(67, 270, 227, 69);
 		startButton.setBackground(new Color(255, 255, 255, 255));
 		contentPane.add(startButton);
