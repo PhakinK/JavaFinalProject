@@ -13,6 +13,8 @@ public final class Logger {
 	private static final Logger instance = new Logger();
 
 	private final List<String> lores = new ArrayList<>();
+	
+	private Logger() {}
 
 	public void addLore(String lore) {
 		lores.add(lore);
