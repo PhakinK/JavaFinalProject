@@ -24,6 +24,12 @@ public class UserCache {
 		this.point += point;
 	}
 
+	/**
+	 * Decreasing user point by minus the old score through int in param
+	 * If points is below, It won't decrease.
+	 * 
+	 * @param point
+	 */
 	public void decreasePoint(int point) {
 		if (this.point - point < 0)
 			return;
