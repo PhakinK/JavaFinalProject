@@ -5,8 +5,10 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.Objects;
 
+/**
+ * Main panel GUI
+ */
 public class MainPanel extends JFrame {
-
 
 	public MainPanel() {
 
@@ -85,7 +87,7 @@ public class MainPanel extends JFrame {
 			frame.setVisible(true);
 
 			this.setVisible(false);
-			this.dispose();
+			this.dispose(); // Prevent memory leak by release unused GUI memory.
 		});
 
 		exitButton.addActionListener(e -> {

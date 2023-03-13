@@ -13,12 +13,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * A registration class for quiz classes.
+ */
 public final class FlagRegister {
 
 	private static final FlagRegister instance = new FlagRegister();
 
 	private final Map<FlagData , Boolean> map = new HashMap<>();
 
+	/**
+	 * Register quiz inside constructor.
+	 */
 	private FlagRegister() {
 
 		map.put(new FlagData(new EnglandFlagPanel() , Gamemode.EASY), false); // If true, randomQuiz won't add that panel to list
@@ -59,6 +65,13 @@ public final class FlagRegister {
 	}
 
 
+	/**
+	 * Random 1 quiz from remaining quiz if not null
+	 * If null or empty, It will return only null.
+	 *
+	 * @param gamemode
+	 * @return
+	 */
 	public GuessingPanel randomQuiz(Gamemode gamemode) {
 
 		List<GuessingPanel> list = new ArrayList<>();
@@ -77,19 +90,29 @@ public final class FlagRegister {
 		panel.setVisible(true);
 	}
 
+	/**
+	 * Set state of quiz GUI.
+	 * If true, It won't add to list in {@link #randomQuiz}
+	 * If false, Vice versa.
+	 *
+	 * @param panel
+	 * @param state
+	 */
 	public void setState(GuessingPanel panel , boolean state) {
 		for (Map.Entry<FlagData , Boolean> entry : map.entrySet())
 			if (entry.getKey().getGamePanel().equals(panel))
 				map.replace(entry.getKey() , state);
 	}
 
+	/**
+	 * Set registered quiz class to state false.
+	 */
 	public void clearState() {
 
 		for (Map.Entry<FlagData , Boolean> entry : map.entrySet())
 			map.replace(entry.getKey() , false);
 
 	}
-
 
 	public static FlagRegister getInstance() {
 		return instance;

@@ -1,5 +1,8 @@
 package com.github.phakink.models;
 
+/**
+ * A class used for determines button's size.
+ */
 public class ButtonPropertities {
 
 	private final int width, height;

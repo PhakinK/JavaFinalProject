@@ -19,6 +19,7 @@ public class ChinaFlagPanel extends GuessingPanel {
 		setLoggerInfo("China");
 	}
 
+
 	@Override
 	protected String imagePath() {
 		return "/Images/FlagEasy/China.png";

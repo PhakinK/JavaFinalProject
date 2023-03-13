@@ -9,6 +9,9 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Represents a path definer GUI
+ */
 public class PathDefinePanel extends JFrame {
 
 	public PathDefinePanel() {

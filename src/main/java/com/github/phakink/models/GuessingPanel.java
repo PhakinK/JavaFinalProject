@@ -11,6 +11,9 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
+/**
+ * Represents a easier way to create quiz GUI.
+ */
 public abstract class GuessingPanel extends JFrame {
 
 	private final Gamemode gamemode;
@@ -71,24 +74,54 @@ public abstract class GuessingPanel extends JFrame {
 
 	}
 
+	/**
+	 * Handling choice 1 event.
+	 *
+	 * @param event
+	 */
 	public final void choiceOneEvent(ActionListener event) {
 		choice1.addActionListener(event);
 	}
 
+	/**
+	 * Handling choice 2 event.
+	 *
+	 * @param event
+	 */
 	public final void choiceTwoEvent(ActionListener event) {
 		choice2.addActionListener(event);
 	}
 
+	/**
+	 * Handling choice 3 event.
+	 *
+	 * @param event
+	 */
 	public final void choiceThreeEvent(ActionListener event) {
 		choice3.addActionListener(event);
 	}
 
+	/**
+	 * Handling choice 4 event.
+	 *
+	 * @param event
+	 */
 	public final void choiceFourEvent(ActionListener event) {
 		choice4.addActionListener(event);
 	}
 
+	/**
+	 * Abstract method which require flag image path.
+	 *
+	 * @return
+	 */
 	protected abstract String imagePath();
 
+	/**
+	 * Event method which will occurs when user clicked on button.
+	 *
+	 * @param isCorrect
+	 */
 	public void onClick(boolean isCorrect) {
 
 		this.setVisible(false);
@@ -101,10 +134,10 @@ public abstract class GuessingPanel extends JFrame {
 			nextPage.setLocation(this.getX() , this.getY());
 
 			if (isCorrect) {
-				Logger.getInstance().addLore("- " + loggerInfo + " [" + "✓" + "]");
+				Logger.getInstance().addLore("- " + loggerInfo + " [" + "Correct" + "]");
 				Core.getCache().increasePoint(this.increment());
 			} else {
-				Logger.getInstance().addLore("- " + loggerInfo + " [" + "✕" + "]");
+				Logger.getInstance().addLore("- " + loggerInfo + " [" + "Incorrect" + "]");
 				Core.getCache().decreasePoint(this.decreasement());
 			}
 
@@ -117,12 +150,32 @@ public abstract class GuessingPanel extends JFrame {
 
 	}
 
+	/**
+	 * Abstract method which defined increment of score.
+	 *
+	 * @return
+	 */
 	public abstract int increment();
 
+	/**
+	 * Abstract method which defined decreasement of score.
+	 *
+	 * @return
+	 */
 	public abstract int decreasement();
 
+	/**
+	 * Implements next choice logic on this abstract method.
+	 *
+	 * @return
+	 */
 	public abstract JFrame nextChoice();
 
+	/**
+	 * Defined which flag user are playing for.
+	 *
+	 * @param info
+	 */
 	public void setLoggerInfo(String info) {
 		this.loggerInfo = info;
 	}
@@ -140,6 +193,9 @@ public abstract class GuessingPanel extends JFrame {
 		return Objects.hash(gamemode, choice1, choice2, choice3, choice4);
 	}
 
+	/**
+	 * Result GUI
+	 */
 	public static final class EndOfGameFrame extends JFrame {
 
 		public EndOfGameFrame() {

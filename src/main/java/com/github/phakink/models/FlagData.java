@@ -2,6 +2,9 @@ package com.github.phakink.models;
 
 import java.util.Objects;
 
+/**
+ * A data class that used for holding quiz data
+ */
 public final class FlagData {
 
 	private final GuessingPanel gamePanel;

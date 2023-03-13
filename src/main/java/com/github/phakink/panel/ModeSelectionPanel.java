@@ -9,6 +9,9 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+/**
+ * Represents a mode selection GUI
+ */
 public class ModeSelectionPanel extends JFrame {
 
 	private JPanel contentPane;
