@@ -6,7 +6,7 @@ public class UserCache {
 	 * The class which used for assigned the score to the user.
 	 */
 
-	private int point = 0;
+	private int point;
 
 	public int getPoint() {
 		return point;
